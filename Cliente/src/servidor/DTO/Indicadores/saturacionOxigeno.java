@@ -1,10 +1,12 @@
 package servidor.DTO.Indicadores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alejandro
  */
-public class saturacionOxigeno {
+public class saturacionOxigeno implements Serializable{
     private int perOxigeno;
 
     public int getPerOxigeno() {

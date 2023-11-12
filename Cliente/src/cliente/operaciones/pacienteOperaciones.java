@@ -13,15 +13,15 @@ public class pacienteOperaciones {
         int noHabitacion;
         
         do{
-            System.out.println("Ingrese el número de la habitación: ");
+            System.out.println("Ingrese el numero de la habitacion: ");
             noHabitacion = UtilidadesConsola.leerEntero();
             
             if((noHabitacion < 100) || (noHabitacion > 999)){
-                System.out.println("Error! Numero de habitación no válido...");
+                System.out.println("Error! Numero de habitacion no valido...");
             }
             else{
                 paciente.setNumhabitacion(noHabitacion);
-                System.out.println("Ingreso del número de habitación exitoso");
+                System.out.println("Ingreso del namero de habitacian exitoso");
             }
         }while((noHabitacion < 99) || (noHabitacion > 1000));
     }

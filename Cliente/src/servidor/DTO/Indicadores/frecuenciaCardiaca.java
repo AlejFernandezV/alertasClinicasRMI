@@ -1,10 +1,12 @@
 package servidor.DTO.Indicadores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alejandro
  */
-public class frecuenciaCardiaca{
+public class frecuenciaCardiaca implements Serializable{
     private int latidosPM;
 
     public frecuenciaCardiaca() {

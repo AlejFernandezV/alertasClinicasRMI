@@ -1,10 +1,12 @@
 package servidor.DTO.Indicadores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alejandro
  */
-public class temperatura{
+public class temperatura implements Serializable{
     
     private double gradosC;
 

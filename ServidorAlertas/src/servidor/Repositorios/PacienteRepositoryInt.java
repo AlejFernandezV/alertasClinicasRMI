@@ -9,7 +9,7 @@ import servidor.DTO.PacienteDTO;
 public interface PacienteRepositoryInt
 {    
     public PacienteDTO registrarPaciente(PacienteDTO objPaciente);
-    public boolean enviarDatos(PacienteDTO objPaciente);
+    public PacienteDTO enviarDatos(PacienteDTO objPaciente);
 }
 
 

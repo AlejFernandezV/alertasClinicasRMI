@@ -1,10 +1,12 @@
 package servidor.DTO.Indicadores;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alejandro
  */
-public class tensionArterial{
+public class tensionArterial implements Serializable{
     private int sistolica;
     private int diastolica;
 

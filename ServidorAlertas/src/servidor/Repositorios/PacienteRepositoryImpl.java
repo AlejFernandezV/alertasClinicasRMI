@@ -28,15 +28,15 @@ public class PacienteRepositoryImpl implements PacienteRepositoryInt{
     }
 
     @Override
-    public boolean enviarDatos(PacienteDTO objPaciente) {
-        this.objAnalisisInd.setPaciente(objPaciente);
-        int puntuacion = this.objAnalisisInd.calcularPuntuacion();
+    public PacienteDTO enviarDatos(PacienteDTO objPaciente) {
+        int puntuacion = this.objAnalisisInd.calcularPuntuacion(objPaciente);
+        System.out.println("Imprimiendo puntuacion: "+ puntuacion);
         if(puntuacion == 2){
             System.out.println("Enviando alerta a enfermeras! ");
         }
         else if(puntuacion >= 3){
             System.out.println("Enviando alerta a enfermeras y médico!");
         }
-        return true;
+        return objPaciente;
     }
 }

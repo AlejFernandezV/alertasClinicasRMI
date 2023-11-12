@@ -1,7 +1,9 @@
 package servidor.DTO.Indicadores;
 
+import java.io.Serializable;
 
-public class contenedorIndicadores {
+
+public class contenedorIndicadores implements Serializable{
     
     private frecuenciaCardiaca objFC;
     private frecuenciaRespiratoria objFR;

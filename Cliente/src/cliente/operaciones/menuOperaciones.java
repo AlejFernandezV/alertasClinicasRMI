@@ -15,13 +15,28 @@ public class menuOperaciones {
     private pacienteOperaciones pOps;
     private indicadorOperaciones objIndOps;
     
-    
     public menuOperaciones(ControladorGestorPacientesInt objRemoto) {
         this.objRemoto = objRemoto;
         this.pOps = new pacienteOperaciones();
         this.paciente = new PacienteDTO();
-        this.objIndOps = new indicadorOperaciones(this.paciente);
+        this.objIndOps = new indicadorOperaciones();
     }
+
+    public PacienteDTO getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(PacienteDTO paciente) {
+        this.paciente = paciente;
+    }
+
+    public indicadorOperaciones getObjIndOps() {
+        return objIndOps;
+    }
+
+    public void setObjIndOps(indicadorOperaciones objIndOps) {
+        this.objIndOps = objIndOps;
+    }    
     
     public void imprimirMenu(){
         System.out.println("==========\tMenu de sensores\t==========");
@@ -41,7 +56,10 @@ public class menuOperaciones {
             this.paciente.imprimirInfo();
 
             PacienteDTO bandera = this.objRemoto.registrarPaciente(this.paciente);
-
+            this.getObjIndOps().setObjPaciente(this.paciente);
+            this.getObjIndOps().setCantidadEdad(this.paciente.getCantidadEdad());
+            this.getObjIndOps().setTipoEdad(this.paciente.getTipoEdad());
+            
             if (bandera != null) {
                 System.out.println("Registro del paciente realizado satisfactoriamente...");
             } else {
@@ -49,6 +67,7 @@ public class menuOperaciones {
             }
         } catch (RemoteException e) {
             System.out.println("La operacion no se pudo completar, intente nuevamente...");
+            System.out.println("Excepcion: "+e.getMessage());
         }
     }
 
@@ -58,26 +77,26 @@ public class menuOperaciones {
             System.out.println("== Lectura de sensores ==");
             
             while (true){
-                
-                System.out.println("Enviando indicadores...");
+                System.out.println("Enviando indicadores...\n");
                 this.objIndOps.generarValoresIndicadores();
-                boolean bandera = this.objRemoto.enviarDatos(this.paciente);
-                if (bandera) {
-                    System.out.println("Freecuencia cardiaca: " + this.paciente.getContInd().getObjFR().getVentilacionesPM());
-                    System.out.println("Presion arterial: " + this.paciente.getContInd().getObjTA().getSistolica()+"/"+this.paciente.getContInd().getObjTA().getDiastolica());
-                    System.out.println("Freecuencia respiratoria: " + this.paciente.getContInd().getObjFR().getVentilacionesPM());
-                    System.out.println("Temperatura : " + this.paciente.getContInd().getObjTemp().getGradosC()+"°");
-                    System.out.println("Saturacion de oxigeno: " + this.paciente.getContInd().getObjSO().getPerOxigeno()+"%");
-                    
+                PacienteDTO bandera = this.objRemoto.enviarDatos(this.paciente);
+                
+                if (bandera != null) {
+                    System.out.println("Freecuencia cardiaca: " + this.getPaciente().getContInd().getObjFC().getLatidosPM());
+                    System.out.println("Presion arterial: " + this.getPaciente().getContInd().getObjTA().getSistolica()+"/"+this.getPaciente().getContInd().getObjTA().getDiastolica());
+                    System.out.println("Freecuencia respiratoria: " + this.getPaciente().getContInd().getObjFR().getVentilacionesPM());
+                    System.out.println("Temperatura : " + this.getPaciente().getContInd().getObjTemp().getGradosC()+" C");
+                    System.out.println("Saturacion de oxigeno: " + this.getPaciente().getContInd().getObjSO().getPerOxigeno()+"%");
+                    System.out.println("");
                 } else {
                     System.out.println("No se pudo realizar el envío de los datos...");
                 }
                 Thread.sleep(8000);
             }
-        } catch(RemoteException e){
+        }catch(RemoteException e){
             System.out.println("La operacion no se pudo completar, intente nuevamente...");
         }catch(Exception e){
-            System.out.println("Error al esperar 8 segundos!");
+            System.out.println("Error! Excepcion: "+e.getMessage());
         }
         
     }

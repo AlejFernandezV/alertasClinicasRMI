@@ -13,11 +13,38 @@ public class verificarNormIndicador {
     private contenedorIndicadores contInd;
     private String tipoEdad;
     private int cantidadEdad;
+    
+    public verificarNormIndicador(){    
+    }
 
     public verificarNormIndicador(PacienteDTO paciente) {
         this.contInd = paciente.getContInd();
         this.tipoEdad = paciente.getTipoEdad();
         this.cantidadEdad = paciente.getCantidadEdad();
+    }
+
+    public contenedorIndicadores getContInd() {
+        return contInd;
+    }
+
+    public void setContInd(contenedorIndicadores contInd) {
+        this.contInd = contInd;
+    }
+
+    public String getTipoEdad() {
+        return tipoEdad;
+    }
+
+    public void setTipoEdad(String tipoEdad) {
+        this.tipoEdad = tipoEdad;
+    }
+
+    public int getCantidadEdad() {
+        return cantidadEdad;
+    }
+
+    public void setCantidadEdad(int cantidadEdad) {
+        this.cantidadEdad = cantidadEdad;
     }
     
     public int normalidadFC(){
@@ -29,21 +56,21 @@ public class verificarNormIndicador {
                 (valor < 120 || valor > 140)){
             return 1;
         }
-        else if((this.tipoEdad.equals("semanas") && (this.cantidadEdad > 7))|| 
-                (this.tipoEdad.equals("meses") && (this.cantidadEdad < 11)) &&
+        else if((this.tipoEdad.equals("semanas") && (this.cantidadEdad >= 7))|| 
+                (this.tipoEdad.equals("meses") && (this.cantidadEdad <= 11)) &&
                 (valor < 100 || valor > 130)){
             return 1;
         }
         else if(this.tipoEdad.equals("años") && this.cantidadEdad == 1 && (valor < 100 || valor > 120)){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 2 || this.cantidadEdad < 6) && (valor < 80 || valor > 120)){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 2 && this.cantidadEdad < 6) && (valor < 80 || valor > 120)){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 || this.cantidadEdad < 13) && (valor < 80 || valor > 100)){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 && this.cantidadEdad < 13) && (valor < 80 || valor > 100)){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 || this.cantidadEdad < 16) && (valor < 70 || valor > 80)){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 && this.cantidadEdad < 16) && (valor < 70 || valor > 80)){
             return 1;
         }
         else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 16) && (valor < 60 || valor > 80)){
@@ -63,20 +90,20 @@ public class verificarNormIndicador {
             return 1;
         }
         else if((this.tipoEdad.equals("semanas") && (this.cantidadEdad > 7))|| 
-                (this.tipoEdad.equals("meses") && (this.cantidadEdad < 11)) &&
+                (this.tipoEdad.equals("meses") && (this.cantidadEdad <= 11)) &&
                 ((valorS < 84 || valorS > 106) || (valorD < 56 || valorD > 70))){
             return 1;
         }
         else if(this.tipoEdad.equals("años") && this.cantidadEdad == 1 && ((valorS < 98 || valorS > 106) || (valorD < 58 || valorD > 70))){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 2 || this.cantidadEdad < 6) && ((valorS < 99 || valorS > 112) || (valorD < 64 || valorD > 70))){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 2 && this.cantidadEdad < 6) && ((valorS < 99 || valorS > 112) || (valorD < 64 || valorD > 70))){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 || this.cantidadEdad < 13) && ((valorS < 104 || valorS > 124) || (valorD < 64 || valorD > 86))){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 && this.cantidadEdad < 13) && ((valorS < 104 || valorS > 124) || (valorD < 64 || valorD > 86))){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 || this.cantidadEdad < 16) && ((valorS < 118 || valorS > 132) || (valorD < 70 || valorD > 82))){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 && this.cantidadEdad < 16) && ((valorS < 118 || valorS > 132) || (valorD < 70 || valorD > 82))){
             return 1;
         }
         else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 16) && ((valorS < 110 || valorS > 140) || (valorD < 70 || valorD > 90))){
@@ -95,7 +122,7 @@ public class verificarNormIndicador {
             return 1;
         }
         else if((this.tipoEdad.equals("semanas") && (this.cantidadEdad > 7))|| 
-                (this.tipoEdad.equals("meses") && (this.cantidadEdad < 11)) ||
+                (this.tipoEdad.equals("meses") && (this.cantidadEdad <= 11)) ||
                 (this.tipoEdad.equals("años") && (this.cantidadEdad >= 1 && this.cantidadEdad <6)) &&
                 (valor < 20 || valor > 30)){
             return 1;
@@ -117,15 +144,15 @@ public class verificarNormIndicador {
             return 1;
         }
         else if((this.tipoEdad.equals("semanas") && (this.cantidadEdad > 7))|| 
-                (this.tipoEdad.equals("meses") && (this.cantidadEdad < 11)) ||
+                (this.tipoEdad.equals("meses") && (this.cantidadEdad <= 11)) ||
                 (this.tipoEdad.equals("años") && (this.cantidadEdad >= 1 && this.cantidadEdad <6)) &&
                 (valor < 37.5 || valor > 37.8)){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 || this.cantidadEdad < 13) && (valor < 37.0 || valor > 37.5)){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 6 && this.cantidadEdad < 13) && (valor < 37.0 || valor > 37.5)){
             return 1;
         }
-        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 || this.cantidadEdad < 16) && (valor < 37.0 || valor > 37.0)){
+        else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 13 && this.cantidadEdad < 16) && (valor < 37.0 || valor > 37.0)){
             return 1;
         }
         else if(this.tipoEdad.equals("años") && (this.cantidadEdad >= 16) && (valor < 36.2 || valor > 37.2)){

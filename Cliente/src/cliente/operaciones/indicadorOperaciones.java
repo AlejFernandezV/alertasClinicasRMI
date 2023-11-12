@@ -8,17 +8,42 @@ import servidor.DTO.PacienteDTO;
  * @author Alejandro
  */
 public class indicadorOperaciones {
-    private SecureRandom sr;
     private PacienteDTO objPaciente;
     private int cantidadEdad;
     private String tipoEdad;
     
+    public indicadorOperaciones(){
+    }
+    
     public indicadorOperaciones(PacienteDTO paciente) {
-        this.sr = new SecureRandom();
         this.objPaciente = paciente;
         this.cantidadEdad = paciente.getCantidadEdad();
         this.tipoEdad = paciente.getTipoEdad();
-    } 
+    }
+
+    public PacienteDTO getObjPaciente() {
+        return objPaciente;
+    }
+
+    public void setObjPaciente(PacienteDTO objPaciente) {
+        this.objPaciente = objPaciente;
+    }
+
+    public int getCantidadEdad() {
+        return cantidadEdad;
+    }
+
+    public void setCantidadEdad(int cantidadEdad) {
+        this.cantidadEdad = cantidadEdad;
+    }
+
+    public String getTipoEdad() {
+        return tipoEdad;
+    }
+
+    public void setTipoEdad(String tipoEdad) {
+        this.tipoEdad = tipoEdad;
+    }
     
     public void generarValoresIndicadores(){
         generarValorFrecuenciaCardiaca();
@@ -52,7 +77,6 @@ public class indicadorOperaciones {
         else if(tipoEdad.equals("años") && (cantidadEdad >= 16)){
             valorFC = generarValorIndicador(58,82);
         }
-        
         this.objPaciente.getContInd().getObjFC().setLatidosPM(valorFC);
     }
     
@@ -68,19 +92,19 @@ public class indicadorOperaciones {
             valorDiastolica = generarValorIndicador(54,72);
             valorSistolica = generarValorIndicador(82,108);
         }
-        else if(tipoEdad.equals("años") && (cantidadEdad == 1 || cantidadEdad < 2)){
+        else if(tipoEdad.equals("años") && (cantidadEdad == 1 && cantidadEdad < 2)){
             valorDiastolica = generarValorIndicador(56,72);
             valorSistolica = generarValorIndicador(96,108);
         }
-        else if(tipoEdad.equals("años") && (cantidadEdad >= 2 || cantidadEdad < 6)){
+        else if(tipoEdad.equals("años") && (cantidadEdad >= 2 && cantidadEdad < 6)){
             valorDiastolica = generarValorIndicador(62,72);
             valorSistolica = generarValorIndicador(97,114);
         }
-        else if(tipoEdad.equals("años") && (cantidadEdad >= 6 || cantidadEdad < 13)){
+        else if(tipoEdad.equals("años") && (cantidadEdad >= 6 && cantidadEdad < 13)){
             valorDiastolica = generarValorIndicador(62,88);
             valorSistolica = generarValorIndicador(102,126);
         }
-        else if(tipoEdad.equals("años") && (cantidadEdad >= 13 || cantidadEdad < 16)){
+        else if(tipoEdad.equals("años") && (cantidadEdad >= 13 && cantidadEdad < 16)){
             valorDiastolica = generarValorIndicador(116,134);
             valorSistolica = generarValorIndicador(118,142);
         }
@@ -101,7 +125,7 @@ public class indicadorOperaciones {
         }
         else if((tipoEdad.equals("semanas") && cantidadEdad == 7) || 
                 (tipoEdad.equals("meses") && cantidadEdad <= 11) || 
-                (tipoEdad.equals("años") && (cantidadEdad >= 1 || cantidadEdad < 6))){
+                (tipoEdad.equals("años") && (cantidadEdad >= 1 && cantidadEdad < 6))){
             valorFR = generarValorIndicador(18,32);
         }
         else if(tipoEdad.equals("años") && (cantidadEdad >= 6)){
@@ -117,18 +141,17 @@ public class indicadorOperaciones {
     }
     
     private void generarValorTemperatura(){
-        
         double valorTemp = 0.0;
         
-        if((tipoEdad.equals("semanas") || tipoEdad.equals("dias") || tipoEdad.equals("días")) && (cantidadEdad > 0 && cantidadEdad <= 6)){
+        if((tipoEdad.equals("semanas") || tipoEdad.equals("dias")) && (cantidadEdad > 0 && cantidadEdad <= 6)){
             valorTemp = generarValorIndicador(37.0, 39.0);
         }
         else if((tipoEdad.equals("semanas") && cantidadEdad == 7) || 
                 (tipoEdad.equals("meses") && cantidadEdad <= 11) || 
-                (tipoEdad.equals("años") && (cantidadEdad >= 1 || cantidadEdad < 6))){
+                (tipoEdad.equals("años") && (cantidadEdad >= 1 && cantidadEdad < 6))){
             valorTemp = generarValorIndicador(36.5,38.5);
         }
-        else if(tipoEdad.equals("años") && (cantidadEdad >= 13 || cantidadEdad < 16)){
+        else if(tipoEdad.equals("años") && (cantidadEdad >= 13 && cantidadEdad < 16)){
             valorTemp = generarValorIndicador(36.0,38.0);
         }
         else if(tipoEdad.equals("años") && (cantidadEdad >= 16)){
@@ -139,14 +162,14 @@ public class indicadorOperaciones {
     }
     
     private int generarValorIndicador(int ranMin, int ranMax){
-        this.sr.setSeed(this.sr.generateSeed(20));
-        return this.sr.nextInt((ranMax - ranMin) + 1) + ranMin;
+        SecureRandom sr = new SecureRandom();;
+        sr.setSeed(sr.generateSeed(20));
+        return sr.nextInt((ranMax - ranMin) + 1) + ranMin;
     }
     
     private double generarValorIndicador(double ranMin, double ranMax){
-        this.sr.setSeed(this.sr.generateSeed(20));
-        return this.sr.nextDouble((ranMax - ranMin) + 1) + ranMin;
+        SecureRandom sr = new SecureRandom();;
+        sr.setSeed(sr.generateSeed(20));
+        return Math.round((sr.nextDouble((ranMax - ranMin) + 1) + ranMin)*100.0)/100.0;
     }
-    
-    
 }
