@@ -1,6 +1,5 @@
 package servidor.DTO;
 
-import cliente.operaciones.indicadorOperaciones;
 import java.io.Serializable;
 import servidor.DTO.Indicadores.contenedorIndicadores;
 
@@ -77,13 +76,12 @@ public class PacienteDTO implements Serializable{
     public void setContInd(contenedorIndicadores contInd) {
         this.contInd = contInd;
     }
-    
  
     public void imprimirInfo(){
         System.out.println("Información Paciente");
         System.out.println("Número de habitación: "+this.getNumhabitacion());
         System.out.println("Nombres: "+this.getNombres());
         System.out.println("Apellidos: "+this.getApellidos());
-        System.out.println("Edad: "+this.getCantidadEdad() +" "+this.getTipoEdad());
+        System.out.println("Edad: "+this.getCantidadEdad() +" "+ this.getTipoEdad());
     }  
 }

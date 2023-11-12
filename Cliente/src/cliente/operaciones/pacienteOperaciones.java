@@ -23,7 +23,7 @@ public class pacienteOperaciones {
                 paciente.setNumhabitacion(noHabitacion);
                 System.out.println("Ingreso del número de habitación exitoso");
             }
-        }while((noHabitacion > 99) || (noHabitacion < 1000));
+        }while((noHabitacion < 99) || (noHabitacion > 1000));
     }
     
     public void ingresoNombreCompleto(PacienteDTO paciente){
@@ -40,44 +40,104 @@ public class pacienteOperaciones {
         
         System.out.println("Ingreso del nombre completo exitoso");
     }
-    
-    
+     
     public void ingresoEdad(PacienteDTO paciente){
-        
-        String edad;
-        
+        boolean band = false;
+        int opcionEdad = 0;
         do{
-            System.out.println("Por favor ingresar la edad del paciente, especificando días, semanas, meses o años \n Ejm: 26 años o 20 semanas");
-            edad = UtilidadesConsola.leerCadena();
-            edad.toLowerCase();
+            this.imprimirMenuEdad();
+            opcionEdad = UtilidadesConsola.leerEntero();
             
-            if (!edad.contains("dias") ||
-                !edad.contains("días") ||
-                !edad.contains("semanas") ||
-                !edad.contains("meses") ||
-                !edad.contains("años")){
-                System.out.println("Error! La edad ingresada no es válida");   
-            }
-            else{
-                this.cambiarFormatoEdad(paciente, edad);
-                System.out.println("Edad ingresada exitosamente!");
-            }            
-        }while (!edad.contains("dias") ||
-                !edad.contains("días") ||
-                !edad.contains("semanas") ||
-                !edad.contains("meses") ||
-                !edad.contains("años") && paciente.getCantidadEdad() > 0); 
+            band = this.seleccionEdad(opcionEdad, paciente);
+        }while (band == false); 
     }
     
-    private void cambiarFormatoEdad(PacienteDTO paciente,String entradaEdad){
-        String[] edad = entradaEdad.split(" ");
-        int cantidadEdad = Integer.parseInt(edad[0]);
-        
-        if(cantidadEdad < 1){
-            System.out.println("Error! La edad no puede ser menor a 0");
-        }else{
-            paciente.setCantidadEdad(cantidadEdad);
-            paciente.setTipoEdad(edad[1]);
+    private void imprimirMenuEdad(){
+        System.out.println("\t\tOpciones edad");
+        System.out.println("1. Dias");
+        System.out.println("2. Semanas");
+        System.out.println("3. Meses");
+        System.out.println("4. Años");
+        System.out.println("Ingrese una opcion: ");
+    }
+    
+    private boolean seleccionEdad(int opcion,PacienteDTO paciente){
+        int cantidadEdad = 0;
+        boolean band = false;
+        switch(opcion){
+            case 1:
+                paciente.setTipoEdad("dias");
+                do{
+                    
+                    System.out.println("Ingrese la cantidad de dias:");
+                    cantidadEdad = UtilidadesConsola.leerEntero();
+                    
+                    paciente.setCantidadEdad(cantidadEdad);
+                    
+                    if(cantidadEdad < 1)
+                        System.out.println("Error! La edad no puede ser menor o igual a 0");
+                    else{
+                        System.out.println("Ingreso de la edad exitoso");
+                        band = true;
+                    }
+                }while(cantidadEdad < 1);                
+                break;
+            case 2:
+                paciente.setTipoEdad("semanas");
+                do{
+                    
+                    System.out.println("Ingrese la cantidad de semanas:");
+                    cantidadEdad = UtilidadesConsola.leerEntero();
+                    paciente.setCantidadEdad(cantidadEdad);
+                    
+                    if(cantidadEdad < 1)
+                        System.out.println("Error! La edad no puede ser menor o igual a 0");
+                    else{
+                        System.out.println("Ingreso de la edad exitoso");
+                        band = true;
+                    }
+                    
+                }while(cantidadEdad < 1);
+                break;
+            case 3:
+                paciente.setTipoEdad("meses");
+                do{
+                    
+                    System.out.println("Ingrese la cantidad de meses:");
+                    cantidadEdad = UtilidadesConsola.leerEntero();
+                    paciente.setCantidadEdad(cantidadEdad);
+                    
+                    if(cantidadEdad < 1)
+                        System.out.println("Error! La edad no puede ser menor o igual a 0");
+                    else{
+                        System.out.println("Ingreso de la edad exitoso");
+                        band = true;
+                    }
+                    
+                }while(cantidadEdad < 1);
+                break;
+            case 4:
+                paciente.setTipoEdad("años");
+                do{
+                    
+                    System.out.println("Ingrese la cantidad de años:");
+                    cantidadEdad = UtilidadesConsola.leerEntero();
+                    paciente.setCantidadEdad(cantidadEdad);
+                    
+                    if(cantidadEdad < 1)
+                        System.out.println("Error! La edad no puede ser menor o igual a 0");
+                    else{
+                        System.out.println("Ingreso de la edad exitoso");
+                        band = true;
+                    }
+                    
+                }while(cantidadEdad < 1);    
+                break;
+            default:
+                System.out.println("Opcion incorrecta!");
+                break;
         }
-    }   
+        return band;
+    }
+    
 }

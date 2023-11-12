@@ -15,6 +15,8 @@ public class Menu {
     public void ejecutarMenuPrincipal() {
         int opcion = 0;
         do {
+            
+            this.mOps.imprimirMenu();
             opcion = UtilidadesConsola.leerEntero();
 
             switch (opcion) {

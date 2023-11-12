@@ -17,7 +17,6 @@ public class ClienteDeObjetos
         objRemoto = (ControladorGestorPacientesInt) UtilidadesRegistroC.obtenerObjRemoto(direccionIpRMIRegistry,numPuertoRMIRegistry, "idGestorPacientes");
         Menu objMenu= new Menu(objRemoto);
         objMenu.ejecutarMenuPrincipal();
-
     }
 	
 }
