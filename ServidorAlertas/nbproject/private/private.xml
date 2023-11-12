@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/controladores/ControladorGestorPacientesInt.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/DTO/Indicadores/saturacionOxigeno.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/DTO/Indicadores/frecuenciaRespiratoria.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/utilidades/UtilidadesRegistroS.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/Repositorios/PacienteRepositoryImpl.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/servicios/ServidorDeObjetos.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/controladores/ControladorGestorNotificacionesInt.java</file>
-            <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/ServidorAlertas/src/servidor/DTO/Indicadores/contenedorIndicadores.java</file>
+            <file>file:/E:/Documentos%20U/SD/Lab/requerimiento_rmi_FernandezA%20_ConstainJ/ServidorAlertas/src/servidor/servicios/ServidorDeObjetos.java</file>
+            <file>file:/E:/Documentos%20U/SD/Lab/requerimiento_rmi_FernandezA%20_ConstainJ/ServidorAlertas/src/servidor/operaciones/guardadoInfo/almacenarInfoAlerta.java</file>
         </group>
     </open-files>
 </project-private>

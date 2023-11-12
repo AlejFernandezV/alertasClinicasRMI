@@ -32,7 +32,7 @@ public class pacienteOperaciones {
         System.out.println("Ingrese los nombres: ");
         nombres = UtilidadesConsola.leerCadena();
         
-        System.out.println("Ingrese los apelidos: ");
+        System.out.println("Ingrese los apellidos: ");
         apellidos = UtilidadesConsola.leerCadena();
         
         paciente.setNombres(nombres);
