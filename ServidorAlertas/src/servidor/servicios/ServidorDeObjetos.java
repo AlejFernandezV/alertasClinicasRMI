@@ -12,12 +12,13 @@ import java.rmi.RemoteException;
 import servidor.Repositorios.PacienteRepositoryImpl;
 import servidor.controladores.ControladorGestorNotificacionesInt;
 import servidor.controladores.ControladorGestorPacientesImpl;
+import servidor.operaciones.guardadoInfo.almacenarInfoAlerta;
 
 public class ServidorDeObjetos
 {
     private static ControladorGestorNotificacionesInt objRemoto;
     public static void main(String args[]) throws RemoteException
-    {        
+    {
          
         int numPuertoRMIRegistry = 2023;
         String direccionIpRMIRegistry = "localhost";
@@ -27,7 +28,7 @@ public class ServidorDeObjetos
         objRemoto = (ControladorGestorNotificacionesInt) UtilidadesRegistroS.obtenerObjRemoto(direccionIpRMIRegistry,2024, "idGestorPacientes");
         //Crear el objeto remoto
         ControladorGestorPacientesImpl objRemotoPacientes = new ControladorGestorPacientesImpl(objPacienteRepositoryImpl);
-        // Obtener la referencia al servicio de notificación del servidor de notificaciones      
+        // Obtener la referencia al servicio de notificación del servidor de notificaciones  
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);

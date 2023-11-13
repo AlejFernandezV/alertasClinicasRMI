@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/Cliente/src/cliente/servicios/ClienteDeObjetos.java</file>
             <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/Cliente/src/cliente/operaciones/menuOperaciones.java</file>
@@ -13,5 +14,8 @@
             <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/Cliente/src/cliente/utilidades/UtilidadesRegistroC.java</file>
             <file>file:/C:/Users/Sublitextil/Desktop/Jhossef/SOFTWARE/Requerimiento%20RMI/alertasClinicasRMI/Cliente/src/cliente/operaciones/pacienteOperaciones.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 27d839f4fac6d63989c3467efd3b42ad67c9547d
     </open-files>
 </project-private>

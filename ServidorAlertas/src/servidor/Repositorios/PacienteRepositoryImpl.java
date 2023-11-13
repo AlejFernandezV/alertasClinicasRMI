@@ -6,6 +6,7 @@ import servidor.DTO.Indicadores.contenedorIndicadores;
 import servidor.DTO.PacienteDTO;
 import servidor.Repositorios.PacienteRepositoryInt;
 import servidor.operaciones.analisisIndicadores;
+import servidor.operaciones.guardadoInfo.almacenarInfoAlerta;
 
 /**
  *
@@ -15,10 +16,12 @@ public class PacienteRepositoryImpl implements PacienteRepositoryInt{
 
     private LinkedList<PacienteDTO> pacientes;
     private analisisIndicadores objAnalisisInd;
+    private almacenarInfoAlerta objArchivo;
     
     public PacienteRepositoryImpl() {
         this.pacientes = new LinkedList();
         this.objAnalisisInd = new analisisIndicadores();
+        this.objArchivo = new almacenarInfoAlerta();
     }
 
     @Override
@@ -32,9 +35,11 @@ public class PacienteRepositoryImpl implements PacienteRepositoryInt{
         int puntuacion = this.objAnalisisInd.calcularPuntuacion(objPaciente);
         System.out.println("Imprimiendo puntuacion: "+ puntuacion);
         if(puntuacion == 2){
+            this.objArchivo.guardarEnArchivo(objPaciente, puntuacion);
             System.out.println("Enviando alerta a enfermeras! ");
         }
         else if(puntuacion >= 3){
+            this.objArchivo.guardarEnArchivo(objPaciente, puntuacion);
             System.out.println("Enviando alerta a enfermeras y médico!");
         }
         return objPaciente;
