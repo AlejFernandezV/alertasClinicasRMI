@@ -5,10 +5,11 @@
 package servidor.controladores;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import servidor.DTO.Notificacion;
 /**
  *
  * @author Sublitextil
  */
 public interface ControladorGestorNotificacionesInt extends Remote {
-    void notificar(String mensaje) throws RemoteException;
+    Notificacion notificar(Notificacion objNotificacion) throws RemoteException;
 }

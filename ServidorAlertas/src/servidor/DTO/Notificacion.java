@@ -103,10 +103,10 @@ public class Notificacion implements Serializable{
             }
         }
         if(this.getPuntuacion()==2){
-            System.out.println("Se necesita una enfermera en la habitacion "+ this.getNoHabitacion());
+            System.out.printf("Se necesita una enfermera en la habitacion "+ this.getNoHabitacion());
         }
         else if(this.getPuntuacion()>=3){
-            System.out.println("Se necesita una enfermera y un medico en la habitacion "+ this.getNoHabitacion());
+            System.out.printf("Se necesita una enfermera y un medico en la habitacion "+ this.getNoHabitacion());
         }
     }
     
