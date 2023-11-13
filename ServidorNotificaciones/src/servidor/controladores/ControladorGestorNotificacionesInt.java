@@ -9,6 +9,6 @@ import java.rmi.RemoteException;
  *
  * @author Sublitextil
  */
-public interface ControladorGestorNotificacionesInt {
+public interface ControladorGestorNotificacionesInt extends Remote {
     void notificar(String mensaje) throws RemoteException;
 }

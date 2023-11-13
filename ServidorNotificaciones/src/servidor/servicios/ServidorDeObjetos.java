@@ -9,26 +9,21 @@ package servidor.servicios;
 import servidor.utilidades.UtilidadesRegistroS;
 import servidor.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
-import servidor.Repositorios.PacienteRepositoryImpl;
-import servidor.controladores.ControladorGestorPacientesImpl;
+import servidor.Repositorios.NotifiacionRepositoryImpl;
+import servidor.controladores.ControladorGestorNotificacionesImpl;
 
 public class ServidorDeObjetos
 {
     public static void main(String args[]) throws RemoteException
     {        
          
-        int numPuertoRMIRegistry = 0;
-        String direccionIpRMIRegistry = "";
-                       
-        System.out.println("Cual es el la dirección ip donde se encuentra  el rmiRegistry ");
-        direccionIpRMIRegistry = UtilidadesConsola.leerCadena();
-        System.out.println("Cual es el número de puerto por el cual escucha el rmiRegistry ");
-        numPuertoRMIRegistry = UtilidadesConsola.leerEntero(); 
+        int numPuertoRMIRegistry = 2024;
+        String direccionIpRMIRegistry = "Localhost";
      
         //Crear el repositorio
-        PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl();
+        //PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl();
         //Crear el objeto remoto
-        ControladorGestorPacientesImpl objRemoto = new ControladorGestorPacientesImpl(objPacienteRepositoryImpl);
+        ControladorGestorNotificacionesImpl objRemoto = new ControladorGestorNotificacionesImpl();
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);

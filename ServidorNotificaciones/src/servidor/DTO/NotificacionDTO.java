@@ -13,20 +13,20 @@ import java.util.Date;
  */
 
 
-public class PacienteDTO implements Serializable{
+public class NotificacionDTO implements Serializable{
     private int numhabitacion;
-    private String nombres;
+    private String nombres; 
     private String apellidos;
     private Date fecNacimiento;
     
-    public PacienteDTO(int numhabitacion, String nombres, String apellidos, Date fecNacimiento) {
+    public NotificacionDTO(int numhabitacion, String nombres, String apellidos, Date fecNacimiento) {
         this.numhabitacion = numhabitacion;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.fecNacimiento = fecNacimiento;
     }
 
-    public PacienteDTO() {
+    public NotificacionDTO() {
     }
 
     public int getNumhabitacion() {

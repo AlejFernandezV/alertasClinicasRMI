@@ -15,6 +15,7 @@ import servidor.controladores.ControladorGestorPacientesImpl;
 
 public class ServidorDeObjetos
 {
+    private static ControladorGestorNotificacionesInt objRemoto;
     public static void main(String args[]) throws RemoteException
     {        
          
@@ -23,18 +24,17 @@ public class ServidorDeObjetos
                        
         //Crear el repositorio
         PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl();
+        objRemoto = (ControladorGestorNotificacionesInt) UtilidadesRegistroS.obtenerObjRemoto(direccionIpRMIRegistry,2024, "idGestorPacientes");
         //Crear el objeto remoto
-        ControladorGestorPacientesImpl objRemoto = new ControladorGestorPacientesImpl(objPacienteRepositoryImpl);
-        // Obtener la referencia al servicio de notificación del servidor de notificaciones
-        ControladorGestorNotificacionesInt servicioNotificacion = (ControladorGestorNotificacionesInt) UtilidadesRegistroS.obtenerObjRemoto("localhost", 2024, "idGestorNotificaciones");
-
+        ControladorGestorPacientesImpl objRemotoPacientes = new ControladorGestorPacientesImpl(objPacienteRepositoryImpl);
+        // Obtener la referencia al servicio de notificación del servidor de notificaciones      
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);
-           UtilidadesRegistroS.RegistrarObjetoRemoto(objRemoto, direccionIpRMIRegistry, numPuertoRMIRegistry, "idGestorPacientes");            
+           UtilidadesRegistroS.RegistrarObjetoRemoto(objRemotoPacientes, direccionIpRMIRegistry, numPuertoRMIRegistry, "idGestorPacientes");            
            
-           // Intento de  Llamada al método de notificación   que queda en NULL
-           //servicioNotificacion.notificar("Se ha generado una alerta en el servidor de alertas.");
+           //Llamada al método de notificación
+           objRemoto.notificar("Conectado con el servidor Alertas");;
       
         } catch (Exception e)
         {

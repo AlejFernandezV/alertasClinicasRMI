@@ -21,7 +21,7 @@ public class pacienteOperaciones {
             }
             else{
                 paciente.setNumhabitacion(noHabitacion);
-                System.out.println("Ingreso del namero de habitacian exitoso");
+                System.out.println("Ingreso del numero de habitacian exitoso");
             }
         }while((noHabitacion < 99) || (noHabitacion > 1000));
     }
