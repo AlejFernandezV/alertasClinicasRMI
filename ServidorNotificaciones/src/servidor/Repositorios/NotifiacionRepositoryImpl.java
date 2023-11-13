@@ -3,7 +3,7 @@ package servidor.Repositorios;
 
 import java.util.LinkedList;
 import java.util.List;
-import servidor.DTO.NotificacionDTO;
+import servidor.DTO.Notificacion;
 import servidor.Repositorios.NotificacionRepositoryInt;
 
 /*
@@ -17,37 +17,15 @@ import servidor.Repositorios.NotificacionRepositoryInt;
  */
 public class NotifiacionRepositoryImpl implements NotificacionRepositoryInt{
 
-    private LinkedList<NotificacionDTO> notificacion;
+    private LinkedList<Notificacion> notificacion;
 
     public NotifiacionRepositoryImpl() {
         this.notificacion = new LinkedList();
     }
 
     @Override
-    public NotificacionDTO registrarNotificacion(NotificacionDTO objPaciente) {
+    public Notificacion registrarNotificacion(Notificacion objPaciente) {
         this.notificacion.add(objPaciente);
         return objPaciente;
     }
-
-    @Override
-    public int consultarCantidadNotificaciones() {
-        return this.notificacion.size();
-    }
-
-    @Override
-    public NotificacionDTO consultarNotificacion(int numHabitacion) {
-        for(NotificacionDTO paciente: this.notificacion){
-            if(paciente.getNumhabitacion()== numHabitacion){
-                return paciente;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<NotificacionDTO> listarNotificacion() {
-        return this.notificacion;
-    }  
-    
-    
 }

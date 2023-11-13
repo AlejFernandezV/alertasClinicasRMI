@@ -1,15 +1,13 @@
 
 package servidor.Repositorios;
 
+import java.rmi.RemoteException;
 import java.util.List;
-import servidor.DTO.NotificacionDTO;
+import servidor.DTO.Notificacion;
 
 public interface NotificacionRepositoryInt
 {    
-    public NotificacionDTO registrarNotificacion(NotificacionDTO objPaciente);
-    public int consultarCantidadNotificaciones();
-    public NotificacionDTO consultarNotificacion(int numeroHabitacion);
-    public List<NotificacionDTO> listarNotificacion();
+    public Notificacion registrarNotificacion (Notificacion objNotificacion)throws RemoteException;
 }
 
 
