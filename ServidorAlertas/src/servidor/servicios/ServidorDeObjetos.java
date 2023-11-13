@@ -7,13 +7,10 @@ package servidor.servicios;
 
 
 import servidor.utilidades.UtilidadesRegistroS;
-import servidor.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
 import servidor.Repositorios.PacienteRepositoryImpl;
 import servidor.controladores.ControladorGestorNotificacionesInt;
 import servidor.controladores.ControladorGestorPacientesImpl;
-import servidor.operaciones.guardadoInfo.almacenarInfoAlerta;
-
 public class ServidorDeObjetos
 {
     private static ControladorGestorNotificacionesInt objRemoto;
