@@ -17,15 +17,27 @@ import servidor.Repositorios.NotificacionRepositoryInt;
  */
 public class NotifiacionRepositoryImpl implements NotificacionRepositoryInt{
 
-    private LinkedList<Notificacion> notificacion;
-
+    private LinkedList<Notificacion> notificaciones;
+    
     public NotifiacionRepositoryImpl() {
-        this.notificacion = new LinkedList();
+        this.notificaciones = new LinkedList();
     }
 
     @Override
     public Notificacion registrarNotificacion(Notificacion objPaciente) {
-        this.notificacion.add(objPaciente);
+        this.notificaciones.add(objPaciente);
         return objPaciente;
+    }
+    
+    private void mostrarNotificacion (){
+        LinkedList<Notificacion>auxNotificacion = this.notificaciones.reversed();
+        
+        System.out.println("Ultimas 5 alertas:");
+        System.out.println("| Fecha | Hora | Puntuacion |");
+        System.out.println("|---|---|---|");
+        for (int i = 0; i<5;i++){
+            System.out.printf("| %s | %s | %s |%n", auxNotificacion.get(i).getFechaAlerta(),
+                    auxNotificacion.get(i).getHoraAlerta(),auxNotificacion.get(i).getPuntuacion());
+        }   
     }
 }
