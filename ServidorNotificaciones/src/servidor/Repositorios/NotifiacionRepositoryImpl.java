@@ -3,7 +3,7 @@ package servidor.Repositorios;
 
 import java.util.LinkedList;
 import java.util.List;
-import servidor.DTO.NotificacionDTO;
+import servidor.DTO.Notificacion;
 import servidor.Repositorios.NotificacionRepositoryInt;
 
 /*
@@ -17,37 +17,27 @@ import servidor.Repositorios.NotificacionRepositoryInt;
  */
 public class NotifiacionRepositoryImpl implements NotificacionRepositoryInt{
 
-    private LinkedList<NotificacionDTO> notificacion;
-
+    private LinkedList<Notificacion> notificaciones;
+    
     public NotifiacionRepositoryImpl() {
-        this.notificacion = new LinkedList();
+        this.notificaciones = new LinkedList();
     }
 
     @Override
-    public NotificacionDTO registrarNotificacion(NotificacionDTO objPaciente) {
-        this.notificacion.add(objPaciente);
+    public Notificacion registrarNotificacion(Notificacion objPaciente) {
+        this.notificaciones.add(objPaciente);
         return objPaciente;
     }
-
-    @Override
-    public int consultarCantidadNotificaciones() {
-        return this.notificacion.size();
-    }
-
-    @Override
-    public NotificacionDTO consultarNotificacion(int numHabitacion) {
-        for(NotificacionDTO paciente: this.notificacion){
-            if(paciente.getNumhabitacion()== numHabitacion){
-                return paciente;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<NotificacionDTO> listarNotificacion() {
-        return this.notificacion;
-    }  
     
-    
+    private void mostrarNotificacion (){
+        LinkedList<Notificacion>auxNotificacion = this.notificaciones.reversed();
+        
+        System.out.println("Ultimas 5 alertas:");
+        System.out.println("| Fecha | Hora | Puntuacion |");
+        System.out.println("|---|---|---|");
+        for (int i = 0; i<5;i++){
+            System.out.printf("| %s | %s | %s |%n", auxNotificacion.get(i).getFechaAlerta(),
+                    auxNotificacion.get(i).getHoraAlerta(),auxNotificacion.get(i).getPuntuacion());
+        }   
+    }
 }
