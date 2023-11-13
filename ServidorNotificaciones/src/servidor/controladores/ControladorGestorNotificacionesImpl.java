@@ -1,23 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package servidor.controladores;
-import java.io.Serializable;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import servidor.DTO.Notificacion;
+import servidor.Repositorios.NotificacionRepositoryInt;
 /**
  *
- * @author Sublitextil
+ * @author Jhossef
  */
 public class ControladorGestorNotificacionesImpl extends UnicastRemoteObject implements ControladorGestorNotificacionesInt{
-    public ControladorGestorNotificacionesImpl() throws RemoteException {
+    
+    NotificacionRepositoryInt repositorio;
+    
+    public ControladorGestorNotificacionesImpl(NotificacionRepositoryInt repositorio) throws RemoteException {
         super();
+        this.repositorio = repositorio;
     }
+    
     @Override
-    public void notificar(String mensaje) throws RemoteException {
-        System.out.println("Notificación recibida: " + mensaje);
-        
+    public Notificacion notificar(Notificacion objNotificacion) throws RemoteException {
+        System.out.println("Notificación recibida!");
+        return repositorio.registrarNotificacion(objNotificacion);
     }
 }

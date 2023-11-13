@@ -9,7 +9,7 @@ package servidor.servicios;
 import servidor.utilidades.UtilidadesRegistroS;
 import servidor.utilidades.UtilidadesConsola;
 import java.rmi.RemoteException;
-import servidor.Repositorios.NotifiacionRepositoryImpl;
+import servidor.Repositorios.NotificacionRepositoryImpl;
 import servidor.controladores.ControladorGestorNotificacionesImpl;
 
 public class ServidorDeObjetos
@@ -21,9 +21,9 @@ public class ServidorDeObjetos
         String direccionIpRMIRegistry = "Localhost";
      
         //Crear el repositorio
-        //PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl();
+        NotificacionRepositoryImpl objNotificacionRepositoryImpl = new NotificacionRepositoryImpl();
         //Crear el objeto remoto
-        ControladorGestorNotificacionesImpl objRemoto = new ControladorGestorNotificacionesImpl();
+        ControladorGestorNotificacionesImpl objRemoto = new ControladorGestorNotificacionesImpl(objNotificacionRepositoryImpl);
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);

@@ -19,20 +19,18 @@ public class ServidorDeObjetos
          
         int numPuertoRMIRegistry = 2023;
         String direccionIpRMIRegistry = "localhost";
-                       
-        //Crear el repositorio
-        PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl();
+        
         objRemoto = (ControladorGestorNotificacionesInt) UtilidadesRegistroS.obtenerObjRemoto(direccionIpRMIRegistry,2024, "idGestorPacientes");
+        
+        //Crear el repositorio
+        PacienteRepositoryImpl objPacienteRepositoryImpl = new PacienteRepositoryImpl(objRemoto);
         //Crear el objeto remoto
         ControladorGestorPacientesImpl objRemotoPacientes = new ControladorGestorPacientesImpl(objPacienteRepositoryImpl);
         // Obtener la referencia al servicio de notificación del servidor de notificaciones  
         try
         {
            UtilidadesRegistroS.arrancarNS(numPuertoRMIRegistry);
-           UtilidadesRegistroS.RegistrarObjetoRemoto(objRemotoPacientes, direccionIpRMIRegistry, numPuertoRMIRegistry, "idGestorPacientes");            
-           
-           //Llamada al método de notificación
-           objRemoto.notificar("Conectado con el servidor Alertas");;
+           UtilidadesRegistroS.RegistrarObjetoRemoto(objRemotoPacientes, direccionIpRMIRegistry, numPuertoRMIRegistry, "idGestorPacientes");             
       
         } catch (Exception e)
         {

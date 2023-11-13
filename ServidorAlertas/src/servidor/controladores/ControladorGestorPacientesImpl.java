@@ -5,7 +5,6 @@ import java.rmi.server.UnicastRemoteObject;
 import servidor.DTO.PacienteDTO;
 import servidor.Repositorios.PacienteRepositoryInt;
 import servidor.operaciones.analisisIndicadores;
-import servidor.operaciones.verificaciones.verificarNormIndicador;
 
 /**
  *
