@@ -66,7 +66,6 @@ public class Notificacion {
     }
     
     public void imprimir(){
-        
     }
     
 }
