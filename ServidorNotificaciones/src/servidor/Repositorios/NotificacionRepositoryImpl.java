@@ -37,13 +37,13 @@ public class NotificacionRepositoryImpl implements NotificacionRepositoryInt{
             }
         }
         
-        System.out.println("Ultimas 5 alertas:");
-        System.out.println("| Fecha | Hora | Puntuacion |");
-        System.out.println("|-------|------|------------|");
+        System.out.println("\t\tUltimas 5 alertas:");
+        System.out.println("|    Fecha   |   Hora   | Puntuacion |");
+        System.out.println("|------------|----------|------------|");
         
         for (int i = 0; i<auxNotificacion.size();i++){
             if(i < 5){
-                System.out.printf("| %s | %s | %s |\n", auxNotificacion.get(i).getFechaAlerta(),
+                System.out.printf("| %s | %s |      %s     |\n", auxNotificacion.get(i).getFechaAlerta(),
                     auxNotificacion.get(i).getHoraAlerta().format(formatoHora),auxNotificacion.get(i).getPuntuacion());
             }
         }   

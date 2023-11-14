@@ -96,10 +96,10 @@ public class Notificacion implements Serializable{
         System.out.println("Fecha de la alerta: " + this.getFechaAlerta());
         if(!this.getIndicadores().isEmpty()){
             System.out.println("\t\tIndicadores:");
-            System.out.println("| Nombre | Valor |");
-            System.out.println("|---|---|");
+            System.out.println("|    Nombre del indicador   |   Valor   |");
+            System.out.println("|---------------------------|-----------|");
             for (Indicador indicador : indicadores) {
-                System.out.printf("| %s | %s |%n", indicador.getNombre(), indicador.getValor());
+                System.out.printf("|     %s    |    %s    |\n", indicador.getNombre(), indicador.getValor());
             }
         }
         if(this.getPuntuacion()==2){
