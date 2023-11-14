@@ -45,6 +45,7 @@ public class PacienteRepositoryImpl implements PacienteRepositoryInt{
         }
         else if(puntuacion >= 3){
             this.objArchivo.guardarEnArchivo(objPaciente, puntuacion);
+            this.enviarNotificacion(objPaciente,puntuacion);
             System.out.println("Enviando alerta a enfermeras y médico!");
         }
         return objPaciente;
